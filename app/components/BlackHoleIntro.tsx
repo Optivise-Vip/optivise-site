@@ -79,7 +79,7 @@ export default function BlackHoleIntro() {
       // morph, and it hides the core before the camera could reveal "inside".
       if (overlayRef.current)
         overlayRef.current.style.opacity = String(
-          p <= 0.72 ? 0 : Math.min((p - 0.72) / 0.28, 1),
+          p <= 0.55 ? 0 : Math.min((p - 0.55) / 0.27, 1),
         );
     };
     const onScroll = () => {

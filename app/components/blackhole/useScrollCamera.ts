@@ -21,7 +21,9 @@ const easeInOut = (x: number) =>
  */
 const TUNING = {
   startRadius: 15,
-  endRadius: 0.7,
+  // Stop short of entering — the camera never reaches "inside" the hole; the
+  // fade-to-hero finishes the approach before the close-up would get there.
+  endRadius: 1.8,
   startHeight: 4.6,
   endHeight: 0.22,
   startAngle: 0.5,
@@ -63,7 +65,8 @@ export function Rig({
       height,
       Math.cos(angle) * radius,
     );
-    camera.lookAt(0, THREE.MathUtils.lerp(0, -0.25, e), 0);
+    // Aim slightly above centre so the camera is tilted gently upward.
+    camera.lookAt(0, THREE.MathUtils.lerp(0.15, 0.3, e), 0);
 
     const cam = camera as THREE.PerspectiveCamera;
     cam.fov = THREE.MathUtils.lerp(TUNING.startFov, TUNING.endFov, e * e);
