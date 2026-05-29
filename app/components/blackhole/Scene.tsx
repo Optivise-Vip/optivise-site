@@ -6,7 +6,6 @@ import { Stars } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import type { BloomEffect } from "postprocessing";
 import AccretionDisk from "./AccretionDisk";
-import Lensing from "./Lensing";
 import { Rig } from "./useScrollCamera";
 
 export type SceneQuality = "high" | "low";
@@ -19,22 +18,6 @@ export default function Scene({
   quality?: SceneQuality;
 }) {
   const bloomRef = useRef<BloomEffect>(null);
-
-  // Build effects as a typed array so the heavy lensing pass can be omitted
-  // entirely on low-power devices without passing falsy EffectComposer children.
-  const effects: React.ReactElement[] = [
-    <Bloom
-      key="bloom"
-      ref={bloomRef}
-      mipmapBlur
-      intensity={1.1}
-      luminanceThreshold={0.15}
-      luminanceSmoothing={0.3}
-    />,
-  ];
-  if (quality === "high") {
-    effects.push(<Lensing key="lensing" progressRef={progressRef} />);
-  }
 
   return (
     <Canvas
@@ -64,7 +47,15 @@ export default function Scene({
 
       <AccretionDisk />
 
-      <EffectComposer>{effects}</EffectComposer>
+      <EffectComposer>
+        <Bloom
+          ref={bloomRef}
+          mipmapBlur
+          intensity={1.1}
+          luminanceThreshold={0.15}
+          luminanceSmoothing={0.3}
+        />
+      </EffectComposer>
     </Canvas>
   );
 }
