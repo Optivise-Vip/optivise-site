@@ -38,7 +38,7 @@ const fragmentShader = /* glsl */ `
   float fbm(vec2 p) {
     float v = 0.0;
     float a = 0.5;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
       v += a * noise(p);
       p *= 2.0;
       a *= 0.5;
@@ -99,7 +99,7 @@ export default function AccretionDisk() {
 
   return (
     <mesh rotation={[-Math.PI / 2 + 0.18, 0, 0]}>
-      <ringGeometry args={[1.25, 6.0, 256, 1]} />
+      <ringGeometry args={[1.25, 6.0, 128, 1]} />
       <shaderMaterial
         ref={matRef}
         vertexShader={vertexShader}

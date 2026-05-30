@@ -40,6 +40,9 @@ export default function BlackHoleIntro() {
   const captionRef = useRef<HTMLDivElement>(null);
   const [mode, setMode] = useState<Mode>("pending");
   const [quality, setQuality] = useState<SceneQuality>("high");
+  // Whether the intro section is on (or near) screen. When false we pause the
+  // WebGL render loop so it costs nothing for the rest of the page.
+  const [active, setActive] = useState(true);
 
   // Decide how (or whether) to animate, client-side only.
   useEffect(() => {
@@ -95,6 +98,21 @@ export default function BlackHoleIntro() {
     };
   }, [mode]);
 
+  // Pause the render loop whenever the intro is scrolled out of view. The
+  // margin resumes it just before it re-enters so scroll-up has no visible
+  // stall. By the time it leaves, the overlay fade has already hidden it.
+  useEffect(() => {
+    if (mode !== "animated") return;
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setActive(entry.isIntersecting),
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [mode]);
+
   // Reduced-motion / no-WebGL: a single static frame, no scroll hijack.
   if (mode === "static") {
     return (
@@ -125,7 +143,7 @@ export default function BlackHoleIntro() {
       <section ref={containerRef} aria-hidden className="relative h-[230vh]">
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           {mode === "animated" ? (
-            <Scene progressRef={progressRef} quality={quality} />
+            <Scene progressRef={progressRef} quality={quality} active={active} />
           ) : (
             <BlackHolePoster />
           )}

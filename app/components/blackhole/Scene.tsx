@@ -13,16 +13,20 @@ export type SceneQuality = "high" | "low";
 export default function Scene({
   progressRef,
   quality = "high",
+  active = true,
 }: {
   progressRef: RefObject<number>;
   quality?: SceneQuality;
+  /** When false, the render loop is paused (intro scrolled offscreen). */
+  active?: boolean;
 }) {
-  const bloomRef = useRef<BloomEffect>(null);
+  const bloomRef = useRef<BloomEffect | null>(null);
 
   return (
     <Canvas
-      gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
-      dpr={quality === "low" ? 1 : [1, 1.75]}
+      frameloop={active ? "always" : "never"}
+      gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }}
+      dpr={quality === "low" ? 1 : [1, 1.5]}
       camera={{ position: [0, 4.6, 15], fov: 55, near: 0.1, far: 120 }}
     >
       <color attach="background" args={["#060608"]} />
@@ -32,7 +36,7 @@ export default function Scene({
       <Stars
         radius={80}
         depth={45}
-        count={quality === "low" ? 1500 : 4000}
+        count={quality === "low" ? 1500 : 2500}
         factor={3}
         saturation={0}
         fade
@@ -41,7 +45,7 @@ export default function Scene({
 
       {/* Event horizon — a pure-black silhouette the disk wraps around. */}
       <mesh>
-        <sphereGeometry args={[1, 64, 64]} />
+        <sphereGeometry args={[1, 32, 32]} />
         <meshBasicMaterial color="#000000" toneMapped={false} />
       </mesh>
 
@@ -49,7 +53,16 @@ export default function Scene({
 
       <EffectComposer>
         <Bloom
-          ref={bloomRef}
+          // Callback ref — NOT a ref object. Under React 19 `ref` is passed as
+          // a normal prop, and @react-three/postprocessing's effect wrapper
+          // does `JSON.stringify(props)` for a useMemo dep. A ref object would
+          // serialize { current: <BloomEffect> }, whose circular THREE graph
+          // throws "Converting circular structure to JSON" and crashes the
+          // Canvas. JSON.stringify skips function values, so a callback ref is
+          // safe while still giving Rig access to the effect.
+          ref={(b: BloomEffect | null) => {
+            bloomRef.current = b;
+          }}
           mipmapBlur
           intensity={1.1}
           luminanceThreshold={0.15}
