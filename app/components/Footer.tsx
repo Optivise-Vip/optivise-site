@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { footer, site } from "../lib/site";
 
 export default function Footer() {
@@ -12,12 +13,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Wordmark + blurb */}
           <div className="md:col-span-1">
-            <a
-              href="#top"
+            <Link
+              href="/"
               className="font-display text-xl font-semibold text-foreground tracking-tight hover:text-accent transition-colors duration-200 inline-block mb-4"
             >
               Optivise
-            </a>
+            </Link>
             <p className="font-sans text-sm text-muted leading-relaxed max-w-xs">
               {footer.blurb}
             </p>

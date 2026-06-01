@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { services } from "../lib/site";
 
 const fadeUp = {
@@ -82,28 +83,32 @@ export default function Services() {
                   {item.summary}
                 </p>
               </div>
-
-              {/* Divider */}
-              <div className="h-px bg-border" />
-
-              {/* Points */}
-              <ul className="flex flex-col gap-3" aria-label={`${item.title} services`}>
-                {item.points.map((point) => (
-                  <li
-                    key={point}
-                    className="flex items-start gap-3 font-sans text-sm text-foreground"
-                  >
-                    <span
-                      className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent"
-                      aria-hidden="true"
-                    />
-                    {point}
-                  </li>
-                ))}
-              </ul>
             </motion.article>
           ))}
         </div>
+
+        {/* Learn more → full page */}
+        <motion.div
+          className="mt-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={fadeUp}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Link
+            href={services.more.href}
+            className="group inline-flex items-center gap-2 font-sans text-sm font-semibold text-accent transition-colors duration-200 hover:text-foreground"
+          >
+            {services.more.label}
+            <span
+              aria-hidden
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

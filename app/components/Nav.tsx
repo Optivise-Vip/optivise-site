@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { nav } from "../lib/site";
 import ScheduleButton from "./ScheduleButton";
 
@@ -32,12 +33,12 @@ export default function Nav() {
         aria-label="Main navigation"
       >
         {/* Wordmark */}
-        <a
-          href="#top"
+        <Link
+          href="/"
           className="font-display text-lg font-semibold text-foreground tracking-tight hover:text-accent transition-colors duration-200"
         >
           Optivise
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">

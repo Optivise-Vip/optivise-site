@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { approach } from "../lib/site";
 
 const fadeUp = {
@@ -98,6 +99,29 @@ export default function Approach() {
             </motion.div>
           ))}
         </div>
+
+        {/* Learn more → full page */}
+        <motion.div
+          className="mt-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={fadeUp}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Link
+            href={approach.more.href}
+            className="group inline-flex items-center gap-2 font-sans text-sm font-semibold text-accent transition-colors duration-200 hover:text-foreground"
+          >
+            {approach.more.label}
+            <span
+              aria-hidden
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
