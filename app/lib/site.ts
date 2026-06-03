@@ -5,14 +5,25 @@
 
 export const site = {
   name: "Optivise",
-  tagline: "AI strategy and builds for businesses that refuse to fall behind",
+  legalName: "Optivise",
+  tagline: "AI strategy and builds for businesses that don't want to get left behind",
   description:
-    "Optivise is a creative technology studio. We advise on AI strategy and build the websites and AI-powered products that put businesses ahead of their competitors.",
+    "Optivise is a creative technology studio. We help businesses figure out where AI actually fits, then build the websites and AI-powered products that get them there first.",
   url: "https://optivise.vip",
   location: "Barbados — building globally",
   email: "optivisevip@gmail.com",
   // Replace with your real Cal.com / Calendly link. Centralized so every CTA uses it.
   schedulingUrl: "https://cal.com/optivise/intro",
+  // Brand eye-mark on dark (public/logo.png) — favicon is app/icon.png. Used as
+  // the Organization logo in JSON-LD; dark tile stays visible on light backgrounds.
+  logoPath: "/logo.png",
+  // Google Search Console token (also set as a DNS TXT record on optivise.vip).
+  googleSiteVerification: "BWaJIWZU21FfpCsP3JBf_PImEf1p2-59aNUqmEFJ9_Q",
+  // Public profiles that prove this is the same Optivise entity. Fill in as each
+  // goes live (LinkedIn, Crunchbase, etc.) — feeds schema.org `sameAs`.
+  sameAs: [
+    "https://www.linkedin.com/company/optivise-vip",
+  ] as string[],
 } as const;
 
 export const nav = {
@@ -30,21 +41,21 @@ export const hero = {
   // Split for oversized display treatment / line breaks.
   headlineLines: ["The future of innovation", "at Optivise."],
   subhead:
-    "A creative technology studio bringing AI strategy and engineering to the businesses that build the real world.",
+    "We're a small studio that helps real-world businesses figure out where AI fits, then builds it. Strategy and engineering, under one roof.",
   primaryCta: { label: "Book a call", href: site.schedulingUrl },
   secondaryCta: { label: "See pricing", href: "/pricing" },
 } as const;
 
 export const services = {
   eyebrow: "What we do",
-  heading: "Two ways we move you forward.",
+  heading: "Two things, and we do them together.",
   intro:
-    "Strategy and engineering, weighted equally. We help you decide what to build — then we build it.",
+    "We help you work out what's actually worth building, then we go build it. Both halves matter, so we treat them as equal.",
   items: [
     {
       title: "Consulting",
       summary:
-        "Advising on AI strategy and technical direction — and scoping the work before a single line is written.",
+        "We help you decide what AI is worth doing and how to do it, and we scope the work before anyone writes a line of code.",
       points: [
         "AI opportunity assessments and roadmaps",
         "Technical direction and architecture",
@@ -54,7 +65,7 @@ export const services = {
     {
       title: "Building",
       summary:
-        "Designing and shipping the websites and AI-powered products that turn strategy into advantage.",
+        "We design and ship the websites and AI-powered products that turn all that strategy into something real.",
       points: [
         "High-craft marketing sites and web apps",
         "AI-powered products and integrations",
@@ -67,24 +78,24 @@ export const services = {
 
 export const approach = {
   eyebrow: "Why Optivise",
-  heading: "We sell outcomes, not hours.",
+  heading: "You're paying for outcomes, not hours.",
   intro:
-    "We're the generation that grew up fluent in AI, advising the industries that haven't yet. The advantage compounds the earlier you start.",
+    "We grew up using these tools every day, and most industries haven't caught up yet. That gap is the opportunity, and the sooner you start, the more it adds up.",
   steps: [
     {
       no: "01",
       title: "Assess",
-      body: "A low-barrier audit maps your operations, finds the AI opportunities, and hands you a roadmap.",
+      body: "A quick, low-stakes audit that maps how your business runs, spots where AI can help, and leaves you with a roadmap.",
     },
     {
       no: "02",
       title: "Build",
-      body: "We design and ship the highest-leverage piece first — a site, a product, an integration — and prove the value.",
+      body: "We ship the one piece that moves the needle most first, whether that's a site, a product, or an integration, and show you it works.",
     },
     {
       no: "03",
       title: "Stay ahead",
-      body: "An ongoing partnership that brings new AI capabilities to your business before your competitors find them. Competitive intelligence, not upkeep.",
+      body: "An ongoing partnership that brings new AI capabilities to your business before your competitors find them. Think competitive intelligence, not maintenance.",
     },
   ],
   more: { label: "See our approach", href: "/approach" },
@@ -94,7 +105,7 @@ export const work = {
   eyebrow: "Selected work",
   heading: "Built to be measured.",
   intro:
-    "We document outcomes, not deliverables. The portfolio is growing — here's where it starts.",
+    "We keep track of results, not just things we shipped. The portfolio is still growing, and this is where it starts.",
   items: [
     {
       client: "Wellness studio",
@@ -102,18 +113,18 @@ export const work = {
       result: "A complete brand site, designed and shipped end to end.",
     },
   ],
-  note: "Your project could be next. Construction and real estate especially welcome.",
+  note: "Yours could be next. We'd especially love to work with construction and real estate.",
   more: { label: "See our work", href: "/work" },
 } as const;
 
 export const ctaBand = {
-  heading: "Get ahead before your competitors do.",
-  body: "Start with a focused assessment. Low commitment, high signal — you'll leave with a roadmap whether or not we build it together.",
+  heading: "Find out what AI could do for you.",
+  body: "Start with a focused assessment. It's a small commitment, and you'll come away with a roadmap whether or not we end up building it together.",
   cta: { label: "See pricing & assessment", href: "/pricing" },
 } as const;
 
 export const footer = {
-  blurb: "A creative technology studio. Strategy and AI builds.",
+  blurb: "A creative technology studio. We do AI strategy, and we build.",
   links: [
     { label: "Services", href: "/services" },
     { label: "Approach", href: "/approach" },
@@ -130,11 +141,11 @@ export const pricing = {
     eyebrow: "Pricing",
     headline: "You're not paying for hours. You're paying for what's next.",
     subhead:
-      "Every engagement starts with a clear outcome in mind — not a scope document and a clock. We work with a small number of clients at a time, and we're selective about fit.",
+      "Every engagement starts with a clear outcome in mind, not a scope document and a stopwatch. We only take on a few clients at a time, and we're honest about whether we're the right fit.",
   },
   portfolioNote: {
     label: "A note on portfolio pricing",
-    body: "We're being transparent: these are our early-client rates. We're building our portfolio and pricing reflects that. If you engage now, your rate is locked in for the life of the engagement — it won't go up on you when our standard rates do. This is our way of rewarding early trust.",
+    body: "We'll be straight with you: these are early-client rates. We're still building our portfolio, and the pricing reflects that. Sign on now and your rate is locked in for the life of the engagement, so it won't jump when our standard rates do. It's how we say thanks for trusting us early.",
   },
   tiers: [
     {
@@ -145,12 +156,12 @@ export const pricing = {
       cadence: "One-time. Fixed scope. No surprises.",
       bonus: "",
       summary:
-        "A structured review of your operations to find where AI can actually help — and where it's a distraction. You get a written roadmap, not a slide deck full of buzzwords.",
+        "A proper look at how your business runs, so we can find where AI genuinely helps and where it's just a distraction. You get a written roadmap, not a slide deck full of buzzwords.",
       includes: [
-        "Operations audit — one department or the whole business",
-        "Prioritised list of AI opportunities with effort vs. impact rating",
-        "Implementation sequence — what to do first and why",
-        "Written deliverable, yours to keep regardless of what comes next",
+        "Operations audit, one department or the whole business",
+        "Prioritised list of AI opportunities, rated by effort vs. impact",
+        "An order of play: what to do first and why",
+        "A written deliverable that's yours to keep, whatever you decide next",
         "30-minute walkthrough call included",
       ],
       featured: false,
@@ -162,17 +173,17 @@ export const pricing = {
       price: "$2,500",
       priceUnit: "",
       cadence:
-        "Fixed project. Typically 2–3 weeks. Includes the Assessment — if you've already completed one, you save $750.",
+        "Fixed project. Usually 2–3 weeks. Includes the Assessment, so if you've already done one, you save $750.",
       bonus: "",
       summary:
-        "Before you commit budget to building something, make sure you're building the right thing. We define the what, the why, and the how — so execution is tight from day one.",
+        "Before you spend real budget building something, it's worth making sure it's the right something. We pin down the what, the why, and the how, so the build runs tight from day one.",
       includes: [
-        "Full AI Opportunity Assessment (included — no need to buy separately)",
+        "Full AI Opportunity Assessment (included, no need to buy it separately)",
         "Technical architecture recommendation",
-        "Tool and vendor selection with rationale",
-        "ROI model — what success looks like in numbers",
+        "Tool and vendor picks, with the reasoning behind them",
+        "An ROI model so you can see success in actual numbers",
         "Phase-by-phase implementation roadmap",
-        "Handoff package if you're building with another team",
+        "A handoff package if you're building with another team",
       ],
       featured: true,
       cta: { label: "Scope your project", href: site.schedulingUrl },
@@ -185,14 +196,14 @@ export const pricing = {
       cadence: "Month-to-month. No lock-in.",
       bonus: "+ $500/quarter performance bonus if agreed KPIs are met",
       summary:
-        "An ongoing strategic partner that keeps your business ahead of what AI can do — before your competitors figure it out. This is not maintenance. It's competitive intelligence.",
+        "A strategic partner who keeps your business ahead of what AI can do, before your competitors clock it. This isn't maintenance. It's competitive intelligence.",
       includes: [
-        "Monthly AI capability briefing relevant to your industry",
+        "A monthly AI briefing tailored to your industry",
         "One implementation or integration per quarter",
-        "Proactive opportunity identification — we bring ideas to you",
-        "KPIs agreed at the start, tracked monthly",
-        "Performance bonus tied to results — we share the upside",
-        "Priority access for urgent strategic decisions",
+        "We come to you with the opportunities, you don't have to go hunting",
+        "KPIs agreed at the start and tracked every month",
+        "A performance bonus tied to results, so we share the upside",
+        "Priority access when you need a fast strategic call",
       ],
       featured: false,
       cta: { label: "Discuss a retainer", href: site.schedulingUrl },
@@ -200,17 +211,17 @@ export const pricing = {
   ],
   kpis: {
     heading: "How the KPIs work",
-    body: "At the start of every retainer we agree on 2–3 measurable targets together. Your monthly fee stays flat. If we hit those targets in the quarter, the performance kicker applies. We have skin in the game.",
+    body: "At the start of every retainer we agree on 2–3 measurable targets together. Your monthly fee stays flat either way. If we hit those targets in the quarter, the bonus kicks in. That way our success is tied to yours.",
     examples: [
-      "Reduce quote turnaround from 3 days to under 24 hours via AI-assisted estimation",
-      "Generate 20 qualified inbound enquiries per quarter via AI content and targeting",
-      "Cut manual scheduling from 10 hours/week to under 2 using automation",
-      "Pilot one new AI capability per quarter before any local competitor does",
+      "Get quotes out in under 24 hours instead of 3 days, with AI-assisted estimating",
+      "Bring in 20 qualified inbound enquiries a quarter through AI content and targeting",
+      "Drop manual scheduling from 10 hours a week to under 2 with automation",
+      "Try one new AI capability each quarter before any local competitor does",
     ],
   },
   notSure: {
-    heading: "Not sure which fits?",
-    body: "The Assessment is the lowest-risk place to start. Most clients who take it come away with a clear picture of what to do next — including whether they want us involved in doing it.",
+    heading: "Not sure which one fits?",
+    body: "The Assessment is the easiest place to start, and the lowest risk. Most people who take it walk away knowing exactly what to do next, including whether they want us doing it with them.",
     cta: {
       label: "Email us your situation",
       href: `mailto:${site.email}?subject=${encodeURIComponent(
@@ -220,7 +231,7 @@ export const pricing = {
   },
   closing: {
     heading:
-      "The best time to start was six months ago. The second best time is before your competitors do.",
+      "Start with the assessment. Even if we never build a thing together, you'll walk away with a roadmap you can run yourself.",
     cta: { label: "Book a 15-minute call", href: site.schedulingUrl },
   },
 } as const;
@@ -231,7 +242,7 @@ export const faqPage = {
   hero: {
     eyebrow: "FAQ",
     heading: "Questions, answered.",
-    subhead: "Everything you need to know before getting started.",
+    subhead: "The things people usually want to know before getting started.",
   },
   askCta: {
     label: "Email your question",
@@ -242,28 +253,28 @@ export const faqPage = {
   items: [
     {
       q: "Why don't you charge hourly?",
-      a: "Because hourly billing aligns our incentives with taking longer, not with delivering better. We'd rather agree on what success looks like and get paid for achieving it.",
+      a: "Because charging by the hour rewards us for taking longer, not for doing better work. We'd rather agree on what success looks like up front and get paid for actually getting there.",
     },
     {
-      q: "What if I just want some advice — not a full project?",
-      a: "The Assessment is designed for that. It's a low-commitment way to get a clear picture of where AI can help your business, with no pressure to continue. A lot of clients find the Assessment alone is worth it.",
+      q: "What if I just want some advice, not a whole project?",
+      a: "That's exactly what the Assessment is for. It's a low-commitment way to get a clear read on where AI can help your business, with zero pressure to carry on. Plenty of clients find it's worth it on its own.",
     },
     {
       q: "What if I want to negotiate the price?",
-      a: "We don't discount — but we can narrow scope. If the Assessment feels too broad, we can run it on a single department or problem area for less. The price reflects value; reducing it means reducing what we cover.",
+      a: "We don't discount, but we can narrow the scope. If the Assessment feels too broad, we can run it on a single department or problem area for less. The price reflects the value, so paying less means covering less.",
     },
     {
       q: "You're a small team. Why should I trust you with something this important?",
-      a: "We're the generation that grew up with these tools — we don't advise on AI from the outside, we use it every day to build real products. We price to reflect where we are, and we measure everything so you don't have to take our word for it.",
+      a: "We grew up with these tools. We don't advise on AI from the sidelines, we use it every day to build real products. Our pricing reflects where we are right now, and we measure everything, so you never have to just take our word for it.",
     },
     {
       q: "What do you need from me to get started?",
-      a: "A 15-minute call and an honest conversation about where your business is. We'll take it from there.",
+      a: "A 15-minute call and an honest chat about where your business is right now. We'll take it from there.",
     },
   ],
   closing: {
     heading:
-      "The best time to start was six months ago. The second best time is before your competitors do.",
+      "Still wondering about something? A 15-minute call usually sorts it out faster than email ever will.",
     cta: { label: "Book a call", href: site.schedulingUrl },
   },
 } as const;
@@ -274,36 +285,36 @@ export const faqPage = {
 export const servicesPage = {
   hero: {
     eyebrow: "Services",
-    headline: "Strategy that decides. Engineering that ships.",
+    headline: "We figure it out, then we build it.",
     subhead:
-      "We work at both ends — figuring out what AI should do for your business, and building the thing that does it. Most studios pick one. We weight them equally.",
+      "We work at both ends: deciding what AI should actually do for your business, and building the thing that does it. Most studios pick one. We give both equal weight.",
   },
   intro:
-    "Every engagement is scoped to an outcome, not a stack of hours. Here is the work we take on, and how each piece fits together.",
+    "Every engagement is scoped around an outcome, not a pile of hours. Here's the work we take on, and how the pieces fit together.",
   offerings: [
     {
       title: "Consulting",
       summary:
-        "Advising on AI strategy and technical direction — and scoping the work before a single line is written.",
+        "We help you decide what AI is worth doing and how to do it, and we scope the work before anyone writes a line of code.",
       detail:
-        "We map where AI genuinely moves the needle for your operations and where it is a distraction. You leave with a prioritised roadmap and a clear-eyed view of effort versus impact — whether or not we are the ones who build it.",
+        "We work out where AI genuinely moves the needle for you and where it's just a distraction. You leave with a prioritised roadmap and a clear sense of effort versus impact, whether or not we're the ones who build it.",
       points: [
         "AI opportunity assessments and roadmaps",
         "Technical direction and architecture",
-        "Tool and vendor selection with rationale",
+        "Tool and vendor picks, with the reasoning behind them",
         "Scoping and planning ahead of a build",
       ],
     },
     {
       title: "Building",
       summary:
-        "Designing and shipping the websites and AI-powered products that turn strategy into advantage.",
+        "We design and ship the websites and AI-powered products that turn all that strategy into something real.",
       detail:
-        "High-craft front ends, AI integrations, and the glue in between. We ship to live preview URLs early and iterate in the open, so you are never waiting months to see something real.",
+        "Polished front ends, AI integrations, and the plumbing in between. We ship to live preview URLs early and build in the open, so you're never stuck waiting months to see something real.",
       points: [
         "High-craft marketing sites and web apps",
         "AI-powered products and integrations",
-        "Automation of manual, repetitive workflows",
+        "Automation for the manual, repetitive stuff",
         "Fast iteration on live preview URLs",
       ],
     },
@@ -312,21 +323,21 @@ export const servicesPage = {
     {
       step: "01",
       title: "Scope",
-      body: "We agree on the outcome and the shape of the work before anything is committed — no open-ended timelines.",
+      body: "We agree on the outcome and the shape of the work before anything's committed. No open-ended timelines.",
     },
     {
       step: "02",
       title: "Build in the open",
-      body: "Work ships to a live preview URL early. You see progress continuously and steer as we go.",
+      body: "Work goes up on a live preview URL early. You watch it come together and steer as we go.",
     },
     {
       step: "03",
-      title: "Measure & hand off",
-      body: "We instrument what matters, prove the value in numbers, and leave you with something you fully own.",
+      title: "Measure and hand off",
+      body: "We track what matters, show you the value in real numbers, and leave you with something you fully own.",
     },
   ],
   closing: {
-    heading: "Not sure which piece you need? That is what the assessment is for.",
+    heading: "Not sure which piece you need? That's exactly what the assessment is for.",
     cta: { label: "See pricing & assessment", href: "/pricing" },
   },
 } as const;
@@ -337,51 +348,51 @@ export const servicesPage = {
 export const approachPage = {
   hero: {
     eyebrow: "Approach",
-    headline: "We sell outcomes, not hours.",
+    headline: "You're paying for outcomes, not hours.",
     subhead:
-      "We are the generation that grew up fluent in AI, advising the industries that haven't yet. The advantage compounds the earlier you start — so our whole process is built to start small and prove value fast.",
+      "We grew up fluent in AI, and we work with the industries that haven't caught up yet. The earlier you start, the more that edge adds up, so our whole process is built to start small and prove its worth fast.",
   },
   intro:
-    "Three phases, each with a clear exit. You are never locked into the next one until the last has earned it.",
+    "Three phases, each with a clear exit. You're never locked into the next one until the last has earned it.",
   steps: [
     {
       no: "01",
       title: "Assess",
-      body: "A low-barrier audit maps your operations, finds the AI opportunities, and hands you a roadmap.",
+      body: "A quick, low-stakes audit that maps how your business runs, spots the AI opportunities, and leaves you with a roadmap.",
       detail:
-        "We look at where time and money actually go, then rank the opportunities by effort versus impact. The deliverable is yours to keep — including the option to walk away and run it yourself.",
+        "We look at where your time and money actually go, then rank the opportunities by effort versus impact. The deliverable is yours to keep, and you're free to walk away and run it yourself.",
     },
     {
       no: "02",
       title: "Build",
-      body: "We design and ship the highest-leverage piece first — a site, a product, an integration — and prove the value.",
+      body: "We ship the one piece that moves the needle most first, whether that's a site, a product, or an integration, and show you it works.",
       detail:
-        "Starting with the single highest-leverage piece keeps risk low and feedback fast. You see a real, working result before committing to anything larger.",
+        "Starting with the single highest-leverage piece keeps the risk low and the feedback fast. You see a real, working result before you commit to anything bigger.",
     },
     {
       no: "03",
       title: "Stay ahead",
       body: "An ongoing partnership that brings new AI capabilities to your business before your competitors find them.",
       detail:
-        "This is competitive intelligence, not upkeep. We track what is newly possible in your industry and bring you the moves worth making — before anyone local does.",
+        "This is competitive intelligence, not upkeep. We keep an eye on what's newly possible in your industry and bring you the moves worth making, before anyone local does.",
     },
   ],
   principles: [
     {
-      title: "Skin in the game",
-      body: "Where it fits, our upside is tied to your results. We would rather share the risk than bill you for time.",
+      title: "Our success is tied to yours",
+      body: "Where it makes sense, our upside is linked to your results. We'd rather share the risk than just bill you for time.",
     },
     {
       title: "Measure everything",
-      body: "We instrument outcomes so you never have to take our word for whether something worked.",
+      body: "We track outcomes, so you never have to take our word for whether something worked.",
     },
     {
       title: "You own it",
-      body: "Every deliverable — strategy, code, documentation — is yours to keep and run without us.",
+      body: "Everything we hand over, strategy, code, documentation, is yours to keep and run without us.",
     },
   ],
   closing: {
-    heading: "The advantage compounds. The best time to start is before your competitors do.",
+    heading: "Start small, see it work, then decide how far to take it. That's the whole idea.",
     cta: { label: "Book a call", href: site.schedulingUrl },
   },
 } as const;
@@ -394,33 +405,33 @@ export const workPage = {
     eyebrow: "Work",
     headline: "Built to be measured.",
     subhead:
-      "We document outcomes, not deliverables. The portfolio is young and growing — what is here is real, and what comes next is being built now.",
+      "We keep track of results, not just things we shipped. The portfolio is young and growing. What's here is real, and what's next is being built right now.",
   },
-  intro: "Selected engagements. More on the way.",
+  intro: "A few of the things we've worked on. More on the way.",
   items: [
     {
       client: "Wellness studio",
       type: "Website",
       result: "A complete brand site, designed and shipped end to end.",
       detail:
-        "Full brand-led marketing site taken from blank page to live, with a fast, accessible front end the owner can update without us.",
+        "A full brand-led marketing site, taken from blank page to live, with a fast, accessible front end the owner can update without us.",
     },
   ],
   engagements: [
     {
       title: "Marketing sites & web apps",
-      body: "High-craft, fast, accessible front ends that look the way your business should and load like they're free.",
+      body: "Fast, polished, accessible front ends that look the way your business should and load like they're weightless.",
     },
     {
       title: "AI-powered products",
-      body: "Custom tools and integrations that put AI to work on a real workflow — not a demo.",
+      body: "Custom tools and integrations that put AI to work on a real workflow, not a demo.",
     },
     {
       title: "Automation & integrations",
-      body: "Quiet wins: the manual, repetitive work that AI and good plumbing can take off your plate.",
+      body: "The quiet wins: all that manual, repetitive work that AI and good plumbing can take off your plate.",
     },
   ],
-  note: "Your project could be next. Construction and real estate especially welcome.",
+  note: "Yours could be next. We'd especially love to work with construction and real estate.",
   closing: {
     heading: "Want to be the next case study?",
     cta: { label: "Book a call", href: site.schedulingUrl },
