@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Services",
+  alternates: { canonical: "/services" },
   description:
     "AI strategy consulting and high-craft engineering — scoped to outcomes, not hours. See how Optivise advises and builds.",
   openGraph: {

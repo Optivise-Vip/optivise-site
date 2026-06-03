@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Pricing",
+  alternates: { canonical: "/pricing" },
   description:
     "Transparent, outcome-based pricing. One-time assessments, fixed-scope projects, and a strategic retainer — no hourly billing, ever.",
   openGraph: {

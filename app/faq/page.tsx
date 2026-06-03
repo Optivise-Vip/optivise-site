@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "FAQ",
+  alternates: { canonical: "/faq" },
   description:
     "Common questions about how Optivise works — pricing, process, and what you need to get started.",
   openGraph: {
@@ -19,9 +20,23 @@ export const metadata: Metadata = {
   },
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqPage.items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function FaqPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Starfield />
 
       <div className="relative z-10">

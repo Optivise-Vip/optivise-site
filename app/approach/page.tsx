@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Approach",
+  alternates: { canonical: "/approach" },
   description:
     "How Optivise works: assess, build, stay ahead. Outcomes over hours, value proven before you commit to more.",
   openGraph: {
